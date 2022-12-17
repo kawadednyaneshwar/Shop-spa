@@ -1,0 +1,22 @@
+<div class="main">
+  <input type="checkbox" id="chk" aria-hidden="true" />
+  <div class="signup">
+    <form>
+      <label for="chk" aria-hidden="true">Sign up</label>
+      <input type="text" name="txt" placeholder="User name" required="" [(ngModel)] = "userName" />
+      <input type="email" name="email" placeholder="Email" required="" [(ngModel)] = "email" />
+      <span *ngIf="!email.endsWith('.com') && email"> Please enter valid email address.</span>
+      <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)] = "password" />
+      <button [ngClass]="email && userName && password && email.endsWith('.com') ? '' : 'sp-button-disable'" (click)="signUp()">Sign up</button>
+    </form>
+  </div>
+  <div class="login">
+    <form>
+      <label for="chk" aria-hidden="true">Login</label>
+      <input type="email" name="email" placeholder="Email" required="" [(ngModel)] = "email" />
+      <span *ngIf="!email.endsWith('.com') && email"> Please enter valid email address.</span>
+      <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)] = "password" />
+      <button [ngClass]="email && password && email.endsWith('.com') ? '' : 'sp-button-disable'" (click)="logIn()">Login</button>
+    </form>
+  </div>
+</div>
